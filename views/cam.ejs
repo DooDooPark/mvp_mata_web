@@ -25,7 +25,7 @@
               <button class="btn btn-primary btn-lg col-12" type="submit">
                 영수증 찍기
               </button>
-              <input type="file" accept="image/*" capture="camera" />
+              <input type="file" accept="image/*" capture="camera" hidden />
             </div>
           </div>
         </form>
@@ -33,4 +33,17 @@
     </div>
   </body>
   <script src="/javascripts/bootstrap/bootstrap.bundle.min.js"></script>
+  <script>
+    const button = document.querySelector(".btn");
+    const input = document.querySelector('input[type="file"]');
+
+    button.addEventListener("click", function () {
+      input.click();
+    });
+
+    input.addEventListener("input", function () {
+      // Do something with the selected file
+      console.log(input.files[0]);
+    });
+  </script>
 </html>
